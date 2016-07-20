@@ -46,3 +46,7 @@
 
 # Backup entities generated with doctrine:generate:entities command
 */Entity/*~
+
+# Error logs
+stocks-access.log
+stocks-error.log
