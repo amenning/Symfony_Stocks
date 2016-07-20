@@ -1,4 +1,4 @@
-angular.module('pickominoGame')				
+angular.module('stockTracker')				
 
 .factory("ActiveDiceArray", ['$filter', 'SetDiceImage', function ActiveDiceFactory($filter, SetDiceImage, $scope){
 	

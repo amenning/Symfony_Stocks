@@ -1,4 +1,4 @@
-angular.module('pickominoGame')				
+angular.module('stockTracker')				
 
 .factory("GrillWormsArray", ['SetWormImage', function GrillWromsFactory(SetWormImage){
 

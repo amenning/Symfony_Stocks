@@ -1,4 +1,4 @@
-angular.module('pickominoGame')
+angular.module('stockTracker')
 
 .controller("PlayerTwoWormsController", ['PlayerWormsArray', 'StealWormAction', function(PlayerWormsArray, StealWormAction){
 	this.wormValues = PlayerWormsArray.array[1];

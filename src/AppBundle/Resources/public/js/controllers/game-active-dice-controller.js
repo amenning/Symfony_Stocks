@@ -1,4 +1,4 @@
-angular.module('pickominoGame')
+angular.module('stockTracker')
 
 .controller("ActiveDiceController", ['ActiveDiceArray', 'FreezeDiceAction', function(ActiveDiceArray, FreezeDiceAction){
 	this.diceValues = ActiveDiceArray.array;

@@ -1,4 +1,4 @@
-angular.module('pickominoGame')
+angular.module('stockTracker')
 
 .directive('tooltip', function(){
 	 return { 

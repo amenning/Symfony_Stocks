@@ -1,4 +1,4 @@
-angular.module('pickominoGame')				
+angular.module('stockTracker')				
 
 .factory("PlayerWormsArray", ['SetWormImage', 'GetWormType', 'GameAction', function PlayerWromsFactory(SetWormImage, GetWormType, GameAction){
 	var playerWormsArray = [[],[]];

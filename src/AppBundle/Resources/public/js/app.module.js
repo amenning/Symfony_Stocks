@@ -1,3 +1,3 @@
 (function(){
-	angular.module('pickominoGame', ['ngAnimate', 'ngTouch']);
+	angular.module('stockTracker', ['ngAnimate', 'ngTouch']);
 })();
