@@ -1,9 +1,9 @@
-Pickomino 
+Stock Tracker 
 ======================
 
-A Symfony project created on June 21, 2016.
+A Symfony project created on July 19th, 2016.
 
-This project is an implementation of Pickomino dice game using Symfony and Angular
+This project is an implementation of a customizable stock tracking interface using Symfony and Angular
 
 ##	Steps to install:
 
