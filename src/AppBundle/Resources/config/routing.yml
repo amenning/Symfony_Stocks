@@ -1,0 +1,68 @@
+# redirecting the root
+root:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /%homepage_name%
+        permanent: true
+    methods: [GET]
+
+homepage:
+    path: /%homepage_name%
+    defaults:
+        _controller: AppBundle:Main:index
+    methods: [GET]
+        
+login:
+    path: /login
+    defaults:
+        _controller: AppBundle:Login:entry
+    methods: [POST]
+    
+logout:
+    path: /logout
+    defaults:
+        _controller: AppBundle:Login:logout
+    methods: [GET]
+
+registration:
+    path: /registration
+    defaults:
+      _controller: AppBundle:Login:registration
+    methods: [POST]
+
+guest_registration:
+    path: /guest_registration
+    defaults:
+      _controller: AppBundle:Login:guestRegistration
+    methods: [GET]
+
+rules:
+    path: /rules
+    defaults:
+        _controller: AppBundle:Main:showRules
+    methods: [GET]
+
+new_game:
+    path: /new_game
+    defaults:
+        _controller: AppBundle:GameState:newGame
+    methods: [POST]
+    
+save_game_state:
+    path: /save_game_state
+    defaults:
+        _controller: AppBundle:GameState:saveGame
+    methods: [POST]
+    
+load_game:
+    path: /load_game
+    defaults:
+        _controller: AppBundle:GameState:loadGame
+    methods: [POST]
+
+angular_templates:
+    path: /angular_directives/{name}
+    defaults:
+        _controller: AppBundle:AngularDirectives:showDirective
+    methods: [GET]
