@@ -4,8 +4,10 @@ php:
   - 5.6
 
 before_script:
-  - cp app/config/parameters.yml.dist app/config/parameters.yml
+  - cp app/config/parameters.yml.travis app/config/parameters.yml
   - composer install
   - bower install
+  - php app/console doctrine:database:create 
+  - php app/console doctrine:schema:update --force 
 
 script: phpunit -c app/
