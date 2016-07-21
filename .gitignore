@@ -50,3 +50,6 @@
 # Error logs
 stocks-access.log
 stocks-error.log
+
+# Travis CI old files
+.travis.yml~
