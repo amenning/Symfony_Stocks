@@ -29,10 +29,10 @@
         "sonata-project/doctrine-orm-admin-bundle": "^3.0",
         "sonata-project/core-bundle": "^3.0",
         "sonata-project/admin-bundle": "^3.4",
-        "sonata-project/cache-bundle": "^2.2"
+        "sonata-project/cache-bundle": "^2.2",
+        "sensio/generator-bundle": "^3.0"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~3.0",
         "symfony/phpunit-bridge": "~2.7"
     },
     "scripts": {
