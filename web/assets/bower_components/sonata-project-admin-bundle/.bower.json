@@ -19,7 +19,7 @@
   "ignore": [
     "*"
   ],
-  "_source": "C:\\xampp\\htdocs\\Symfony_Pickomino\\pickomino\\vendor\\sonata-project\\admin-bundle\\bower.json",
+  "_source": "C:\\xampp\\htdocs\\Symfony_Stocks\\vendor\\sonata-project\\admin-bundle\\bower.json",
   "_target": "*",
   "_originalSource": "./vendor/sonata-project/admin-bundle/bower.json",
   "_direct": true
