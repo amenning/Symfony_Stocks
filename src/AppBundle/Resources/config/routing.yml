@@ -12,13 +12,19 @@ homepage:
     defaults:
         _controller: AppBundle:Main:index
     methods: [GET]
-        
+
+stock:
+    path: /stock
+    defaults:
+        _controller: AppBundle:Main:stock
+    methods: [GET]
+
 login:
     path: /login
     defaults:
         _controller: AppBundle:Login:entry
     methods: [POST]
-    
+
 logout:
     path: /logout
     defaults:
@@ -48,13 +54,13 @@ new_game:
     defaults:
         _controller: AppBundle:GameState:newGame
     methods: [POST]
-    
+
 save_game_state:
     path: /save_game_state
     defaults:
         _controller: AppBundle:GameState:saveGame
     methods: [POST]
-    
+
 load_game:
     path: /load_game
     defaults:

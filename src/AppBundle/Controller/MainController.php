@@ -34,4 +34,9 @@ class MainController extends Controller
 	{
 		return $this->render('rules/rules.html.twig', array());
 	}
+
+    public function stockAction()
+    {
+        return $this->render('stocks/stocks.html.twig', array());
+    }
 }
