@@ -60,7 +60,7 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
         "compile": [
-            "bin/console doctrine:schema:update --force"
+            "php app/console doctrine:schema:update --force"
         ]
     },
     "config": {
