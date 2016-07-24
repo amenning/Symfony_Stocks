@@ -19,8 +19,15 @@
   "ignore": [
     "*"
   ],
-  "_source": "C:\\xampp\\htdocs\\Symfony_Stocks\\vendor\\sonata-project\\admin-bundle\\bower.json",
-  "_target": "*",
-  "_originalSource": "./vendor/sonata-project/admin-bundle/bower.json",
+  "version": "3.4.0",
+  "_release": "3.4.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.4.0",
+    "commit": "875c4ed67544e253c0624aa66d5bbcadd6a059f7"
+  },
+  "_source": "https://github.com/sonata-project/SonataAdminBundle.git",
+  "_target": "^3.4.0",
+  "_originalSource": "sonata-project-admin-bundle",
   "_direct": true
 }
