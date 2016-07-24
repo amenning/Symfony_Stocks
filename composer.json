@@ -30,7 +30,8 @@
         "sonata-project/core-bundle": "^3.0",
         "sonata-project/admin-bundle": "^3.4",
         "sonata-project/cache-bundle": "^2.2",
-        "sensio/generator-bundle": "^3.0"
+        "sensio/generator-bundle": "^3.0",
+        "fabpot/goutte": "^3.1"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "~2.7"

@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Goutte\Client;
 
 class MainController extends Controller
 {
@@ -37,6 +38,16 @@ class MainController extends Controller
 
     public function stockAction()
     {
-        return $this->render('stocks/stocks.html.twig', array());
+        $client = new Client();
+
+        $requestUrl = "http://ichart.yahoo.com/table.csv?s=DNOW&a={date.addMonths(-2).format(%27MM%27)}&b={date.today.format(%27dd%27)}&c={date.today.format(%27yyyy%27)}&d={date.addMonths(-1).format(%27MM%27)}&e={date.today.format(%27dd%27)}&f={date.today.format(%27yyyy%27)}&g=d&ignore=.csv";
+
+        $client->request('GET', $requestUrl);
+
+        $contentDump = $client->getResponse()->getContent();
+
+        return $this->render('stocks/stocks.html.twig', array(
+            'contentDump' => $contentDump,
+        ));
     }
 }
