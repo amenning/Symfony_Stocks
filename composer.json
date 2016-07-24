@@ -62,6 +62,9 @@
         ],
         "compile": [
             "php app/console doctrine:schema:update --force"
+            "php app/console assets:install web"
+            "php app/console cache:clear --env=prod"
+            "php app/console cache:clear --env=dev"
         ]
     },
     "config": {
