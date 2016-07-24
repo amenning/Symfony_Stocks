@@ -11,6 +11,10 @@
 				{{ dataTitles }} <br/>
 				{{ firstDataRow }}
 				
+				<div ng-controller="StockController as stockCtrl">
+				    <zingchart id="chart-1" zc-json="myJson" zc-height=500 zc-width=600></zingchart>
+				</div>
+				
 				<!--h2>Step 1.  Roll the dice.</h2>
 
 				<ul>
