@@ -1,120 +1,139 @@
 angular.module('stockTracker')
 
 .controller("StockController", ['$scope', function($scope){
-  $scope.myJson = {
-    type: "line",
-    title: {
-      textAlign:'left',
-    },
-    crosshairX : {
-      lineColor : "#b6b6b6",
-      trigger : "move",
-      lineStyle : 'dashed',
-      marker : {
-        visible : true,
-      size : 4
-      },
-      scaleLabel : {
-        bold : true,
-        backgroundColor : "#fff",
-        fontColor : "#474747",
-        fontSize : "16px",
-        callout : false,
-        paddingTop : 2,
-
-      },
-      plotLabel : {
-        backgroundColor : "white",
-        borderColor : "#bababa",
-        borderRadius : "5px",
-        bold : true,
-        fontSize : "12px",
-        fontColor : "#2f2f2f",
-        textAlign : 'right',
-        padding : '10px',
-        shadow : true,
-        shadowAlpha : 0.2,
-        shadowBlur : 5,
-        shadowDistance : 4,
-        shadowColor : "#a1a1a1",
-
-      }
-    },
-    plot : {
-      tooltip : {
-        visible : false
-      },
-      aspect : 'spline',
-      marker : {
-        backgroundColor : "white",
-        borderWidth : "2px",
-      },
-      hoverMarker : {
-        backgroundColor : 'none',
-        size : 10
-      }
-    },
-    scaleX : {
-      lineColor : "#E3E8E9",
-      fontColor : "#879CAB",
-      guide :{
-        visible : true,
-        lineWidth : "1px",
-        lineColor : "#E3E8E9",
-        lineStyle : "solid"
-      },
-      tick : {
-        visible : false
-      },
-      labels : ['Mon', 'Tues', 'Weds', 'Thurs', 'Fri', 'Sat', 'Sun']
-    },
-    scaleY : {
-      lineColor : "#E3E8E9",
-      fontColor : "#879CAB",
-      guide :{
-        visible : true,
-        lineWidth : "1px",
-        lineColor : "#E3E8E9",
-        lineStyle : "solid"
-      },
-       tick : {
-        visible : false
-      }
-    },
-    series : [
-        {
-            values : [3,2,4,5,4,1,0],
-            text : "Total Commits",
-            lineColor : "#00ACF2",
-            marker : {
-        borderColor : "#00ACF2"
-      }
-        },
-        {
-            values : [0,0,3,4,3,1,1],
-            text : "Issues Solved",
-      lineColor : "#86CA00",
-      marker : {
-        borderColor: "#86CA00"
-      }
-        },
-        {
-            values : [0,1,1,4,2,0,1],
-            text : "Issues Submitted",
-      lineColor : "#FF4B47",
-      marker : {
-        borderColor: "#FF4B47"
-      }
-        },
-        {
-            values : [0,1,2,2,1,0,1],
-            text : "Number of Clones",
-      lineColor : "#fea10a",
-      marker : {
-        borderColor: "#fea10a"
-      }
+     $scope.myJson = {
+      gui: {
+        contextMenu: {
+          button: {
+            visible: 0
+          }
         }
-    ]
-  };
+      },
+      backgroundColor: "#434343",
+      globals: {
+          shadow: false,
+          fontFamily: "Helvetica"
+      },
+      type: "area",
+
+      legend: {
+          layout: "x4",
+          backgroundColor: "transparent",
+          borderColor: "transparent",
+          marker: {
+              borderRadius: "50px",
+              borderColor: "transparent"
+          },
+          item: {
+              fontColor: "white"
+          }
+
+      },
+      scaleX: {
+          maxItems: 8,
+          transform: {
+              type: 'date'
+          },
+          zooming: true,
+          values: [
+            1442905200000, 1442908800000,
+            1442912400000, 1442916000000,
+            1442919600000, 1442923200000,
+            1442926800000, 1442930400000,
+            1442934000000, 1442937600000,
+            1442941200000, 1442944800000,
+            1442948400000
+          ],
+          lineColor: "white",
+          lineWidth: "1px",
+          tick: {
+              lineColor: "white",
+              lineWidth: "1px"
+          },
+          item: {
+              fontColor: "white"
+          },
+          guide: {
+              visible: false
+          }
+      },
+      scaleY: {
+          lineColor: "white",
+          lineWidth: "1px",
+          tick: {
+              lineColor: "white",
+              lineWidth: "1px"
+          },
+          guide: {
+              lineStyle: "solid",
+              lineColor: "#626262"
+          },
+          item: {
+              fontColor: "white"
+          },
+      },
+      tooltip: {
+          visible: false
+      },
+      crosshairX: {
+          scaleLabel: {
+              backgroundColor: "#fff",
+              fontColor: "black"
+          },
+          plotLabel: {
+              backgroundColor: "#434343",
+              fontColor: "#FFF",
+              _text: "Number of hits : %v"
+          }
+      },
+      plot: {
+          lineWidth: "2px",
+          aspect: "spline",
+          marker: {
+              visible: false
+          }
+      },
+      series: [{
+          text: "All Sites",
+          values: [2596, 2626, 4480,
+                   6394, 7488, 14510,
+                   7012, 10389, 20281,
+                   25597, 23309, 22385,
+                   25097, 20813, 20510],
+          backgroundColor1: "#77d9f8",
+          backgroundColor2: "#272822",
+          lineColor: "#40beeb"
+      } /*, {
+          text: "Site 1",
+          values: [479, 199, 583,
+                   1624, 2772, 7899,
+                   3467, 3227, 12885,
+                   17873, 14420, 12569,
+                   17721, 11569, 7362],
+          backgroundColor1: "#4AD8CC",
+          backgroundColor2: "#272822",
+          lineColor: "#4AD8CC"
+      }, {
+          text: "Site 2",
+          values: [989, 1364, 2161,
+                   2644, 1754, 2015,
+                   818, 77, 1260,
+                   3912, 1671, 1836,
+                   2589, 1706, 1161],
+          backgroundColor1: "#1D8CD9",
+          backgroundColor2: "#1D8CD9",
+          lineColor: "#1D8CD9"
+      }, {
+          text: "Site 3",
+          values: [408, 343, 410,
+                   840, 1614, 3274,
+                   2092, 914, 5709,
+                   6317, 6633, 6720,
+                   6504, 6821, 4565],
+          backgroundColor1: "#D8CD98",
+          backgroundColor2: "#272822",
+          lineColor: "#D8CD98"
+      }*/]
+    };
 
 }]);

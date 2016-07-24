@@ -6,14 +6,18 @@
 		
 		<div class = "container-game inset">
 			<div class = "rules inset">
-				<h2>DNOW Stock Price</h2>
-				
-				{{ dataTitles }} <br/>
-				{{ firstDataRow }}
-				
-				<div ng-controller="StockController as stockCtrl">
+				<h2>{{ stockTicker }} Stock Price</h2>
+								
+				<div ng-controller="StockController as stockCtrl" ng-init="myJson.scaleX.values=[{{ dateString }}]; myJson.series[0].values=[{{ closeValueString }}]; myJson.series[0].text='{{ stockTicker }}'">
 				    <zingchart id="chart-1" zc-json="myJson" zc-height=500 zc-width=600></zingchart>
 				</div>
+				
+				<!-- div>
+				{{ stockTicker }} <br />
+                {{ dataTitles }} <br/>
+                {{ dateString }} <br/>
+                {{ closeValueString }} 
+				</div -->
 				
 				<!--h2>Step 1.  Roll the dice.</h2>
 

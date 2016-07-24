@@ -38,25 +38,46 @@ class MainController extends Controller
 
     public function stockAction()
     {
+
+        // Obtain stock data from yahoo api
         $client = new Client();
-
-        $requestUrl = "http://ichart.yahoo.com/table.csv?s=DNOW&a={date.addMonths(-2).format(%27MM%27)}&b={date.today.format(%27dd%27)}&c={date.today.format(%27yyyy%27)}&d={date.addMonths(-1).format(%27MM%27)}&e={date.today.format(%27dd%27)}&f={date.today.format(%27yyyy%27)}&g=d&ignore=.csv";
-
+        $requestUrl = "http://ichart.yahoo.com/table.csv?s=DDD&a={date.addMonths(-2).format(%27MM%27)}&b={date.today.format(%27dd%27)}&c={date.today.format(%27yyyy%27)}&d={date.addMonths(-1).format(%27MM%27)}&e={date.today.format(%27dd%27)}&f={date.today.format(%27yyyy%27)}&g=d&ignore=.csv";
         $client->request('GET', $requestUrl);
-
         $contentDump = $client->getResponse()->getContent();
 
-        //$contentDumpAdjusted = str_replace("Adj Close","Adj-Close", $contentDump);
-        $contentDumpAdjusted = str_replace("\n", ",", $contentDump);
+        // Transpose csv cata into data arrays
+        $resultArray = explode("\n", $contentDump);
+        $resultArrayLength = count($resultArray);
+        for($i=0; $i<$resultArrayLength; $i++)
+        {
+            $result[$i] = str_getcsv($resultArray[$i]);
+        }
 
-        $result = str_getcsv($contentDumpAdjusted);
+        // Assign data column titles to dataTitles var
+        $dataTitles = "";
+        $headerArrayLength = count($result[0]);
+        for($j=0; $j<$headerArrayLength; $j++)
+        {
+            $dataTitles .= " ".$result[0][$j];
+        }
 
-        $dataTitles = $result[0]." ".$result[1]." ".$result[2]." ".$result[3]." ".$result[4]." ".$result[5]." ".$result[6];
-        $firstDataRow = $result[7]." ".$result[8]." ".$result[9]." ".$result[10]." ".$result[11]." ".$result[12]." ".$result[13];
+        // Assign closing value data to  closeValueArray
+        $dateString = "";
+        $closeValueString = "";
+        $totalDataArrayLength = count($result)-2;
+        for($k=$totalDataArrayLength; $k>1; $k--)
+        {
+            $dateArray[$k-1] = strtotime($result[$k][0]);
+            $dateString .= $dateArray[$k-1]."000, ";
+            $closeValueArray[$k-1] = $result[$k][4];
+            $closeValueString .= $closeValueArray[$k-1].", ";
+        }
 
         return $this->render('stocks/stocks.html.twig', array(
             'dataTitles' => $dataTitles,
-            'firstDataRow' => $firstDataRow,
+            'dateString' => $dateString,
+            'closeValueString' => $closeValueString,
+            'stockTicker' => "DDD",
         ));
     }
 }
