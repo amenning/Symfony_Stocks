@@ -4,11 +4,11 @@ security:
 
     encoders:
         FOS\UserBundle\Model\UserInterface: bcrypt
-        
+
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: ROLE_ADMIN
-          
+
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         fos_userbundle:
@@ -26,7 +26,7 @@ security:
                 csrf_token_generator: security.csrf.token_manager
                 default_target_path:  /%homepage_name%
                 always_use_default_target_path: true
-            logout: 
+            logout:
                 path: /logout
                 target: /%homepage_name%
             anonymous: true
@@ -39,10 +39,11 @@ security:
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
 
     access_control:
+        - { path: ^/stock, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/angular_templates, role: IS_AUTHENTICATED_ANONYMOUSLY }
         #- { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/%homepage_name%, role: ROLE_USER }
-        
+
