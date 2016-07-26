@@ -16,7 +16,7 @@ homepage:
 stock:
     path: /stock
     defaults:
-        _controller: AppBundle:Main:stock
+        _controller: AppBundle:Stock:stock
     methods: [GET]
 
 login:

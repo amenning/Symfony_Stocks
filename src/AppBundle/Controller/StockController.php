@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Goutte\Client;
 
-class MainController extends Controller
+class StockController extends Controller
 {
     public function indexAction(Request $request)
     {
@@ -28,17 +28,23 @@ class MainController extends Controller
         ));
     }
 
-    public function showRulesAction()
-    {
-        return $this->render('rules/rules.html.twig', array());
-    }
-
-    public function stockAction()
+    public function stockAction(Request $request)
     {
 
         // Obtain stock data from yahoo api
         $client = new Client();
-        $requestUrl = 'http://ichart.yahoo.com/table.csv?s=DDD&a={date.addMonths(-2).format(%27MM%27)}&b={date.today.format(%27dd%27)}&c={date.today.format(%27yyyy%27)}&d={date.addMonths(-1).format(%27MM%27)}&e={date.today.format(%27dd%27)}&f={date.today.format(%27yyyy%27)}&g=d&ignore=.csv';
+
+        $baseUrl = 'http://ichart.yahoo.com/table.csv?';
+        $stockTicker = 's=DDD';
+        $queryPartA = '&a={date.addMonths(-2).format(%27MM%27)}';
+        $queryPartB = '&b={date.today.format(%27dd%27)}';
+        $queryPartC = '&c={date.today.format(%27yyyy%27)}';
+        $queryPartD = '&d={date.addMonths(-1).format(%27MM%27)}';
+        $queryPartE = '&e={date.today.format(%27dd%27)}';
+        $queryPartF = '&f={date.today.format(%27yyyy%27)}';
+        $queryPartG = '&g=d&ignore=.csv';
+
+        $requestUrl = $baseUrl.$stockTicker;//.$queryPartA.$queryPartB.$queryPartC.$queryPartD.$queryPartE.$queryPartF.$queryPartG;
         $client->request('GET', $requestUrl);
         $contentDump = $client->getResponse()->getContent();
 
