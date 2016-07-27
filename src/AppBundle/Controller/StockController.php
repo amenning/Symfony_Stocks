@@ -28,14 +28,14 @@ class StockController extends Controller
         ));
     }
 
-    public function stockAction(Request $request)
+    public function stockAction(Request $request, $ticker)
     {
 
         // Obtain stock data from yahoo api
         $client = new Client();
 
         $baseUrl = 'http://ichart.yahoo.com/table.csv?';
-        $stockTicker = 's=DDD';
+        $stockTicker = 's='.$ticker;
         $queryPartA = '&a={date.addMonths(-2).format(%27MM%27)}';
         $queryPartB = '&b={date.today.format(%27dd%27)}';
         $queryPartC = '&c={date.today.format(%27yyyy%27)}';
@@ -77,7 +77,7 @@ class StockController extends Controller
             'dataTitles' => $dataTitles,
             'dateString' => $dateString,
             'closeValueString' => $closeValueString,
-            'stockTicker' => 'DDD',
+            'stockTicker' => $ticker,
         ));
     }
 }

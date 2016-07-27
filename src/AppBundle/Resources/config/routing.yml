@@ -14,7 +14,7 @@ homepage:
     methods: [GET]
 
 stock:
-    path: /stock
+    path: /stock/{ticker}
     defaults:
         _controller: AppBundle:Stock:stock
     methods: [GET]
