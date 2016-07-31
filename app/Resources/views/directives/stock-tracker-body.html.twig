@@ -5,7 +5,7 @@
 	<!-- If not logged in, show registration area here -->
 	<game-registration ng-show="bodyCtrl.gameStatus.gameRegistration"></game-registration>
 	<!-- If logged in, show game selection here -->
-	<game-setup ng-show="bodyCtrl.gameStatus.gameSetup"></game-setup>
+	<stock-tracker-setup ng-show="bodyCtrl.gameStatus.gameSetup"></stock-tracker-setup>
 	<!-- If logged in and game selected, show game board here -->
 	<game-board ng-show="bodyCtrl.gameStatus.gameActive"></game-board>
 	<!-- If logged in and toturial selected, show tutorial board here -->

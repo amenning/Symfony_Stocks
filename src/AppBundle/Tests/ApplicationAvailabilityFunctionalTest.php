@@ -52,7 +52,7 @@ class ApplicationAvailabilityFunctionalTest extends WebTestCase
 			array('/angular_directives/game-player-options'),
 			array('/angular_directives/game-player-worms'),
 			array('/angular_directives/game-registration'),
-			array('/angular_directives/game-setup'),
+			array('/angular_directives/stock-tracker-setup'),
 			array('/angular_directives/tutorial-board'),
 		);
 	 }
