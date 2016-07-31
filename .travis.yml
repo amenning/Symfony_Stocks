@@ -12,7 +12,7 @@ services:
 before_script:
   - psql -c 'create database symfony_stocks;' -U postgres
   - cp app/config/parameters.yml.travis app/config/parameters.yml
-  - composer require symfony/symfony:${SYMFONY_VERSION}
+  # - composer require symfony/symfony:${SYMFONY_VERSION}
   - composer install
   - php app/console doctrine:schema:update --force
 
