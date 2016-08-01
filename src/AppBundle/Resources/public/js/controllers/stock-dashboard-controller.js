@@ -1,6 +1,6 @@
 angular.module('stockTracker')		
 	
-.controller("SetupController", [
+.controller("DashboardController", [
 	'GameAction',
 	'GameState',
 	'$http',
