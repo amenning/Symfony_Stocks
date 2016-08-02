@@ -25,19 +25,6 @@
 					<li>Tiles 33-36 = 4 worms</li>
 				</ul>
 			</li>
-			<li>
-				<a href='turnsummary.html' data-target='#' data-toggle='dropdown'>Turn Summary <span class='caret'></span></a>
-				<ul class='dropdown-menu'>
-					<li>1. Roll Dice</li>
-					<li class='divider'></li>
-					<li>2. Freeze Dice Group</li>
-					<li class='divider'></li>
-					<li>3. Maybe Take Worm</li>
-					<li class='divider'></li>
-					<li>4. Repeat</li>
-				</ul>
-			</li>
-			<li><a href='{{ url('rules') }}' target="_blank">Rules</a></li>
 			<li ng-show='gameHeaderCtrl.name.firstname'><a href="{{ url('logout') }}">Welcome {% verbatim %}{{gameHeaderCtrl.name.firstname}}{% endverbatim %}, Log out</a></li>
 		</ul>
 	</div>
